@@ -1,4 +1,4 @@
-public class /**
+ /**
  * @(#)Trainer.java
  *
  *
@@ -15,5 +15,5 @@ public class Trainer {
     }
 
 
-}Trainer {
+
 }

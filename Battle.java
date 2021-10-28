@@ -1,13 +1,9 @@
 import java.util.Arrays;
 import java.util.LinkedList;
-import java.util.Random;*Namashi Sivaram and Will Jarvis-Cross
-        *battle class that handles and keeps track
- *of a pokemon battles in stages consisting of the foes team and the players
-         *main functions: calculates damage, applies move effects, and switches pokemon
-         */
-         import java.util.Random;
-         import java.util.LinkedList;
-         import java.util.Arrays;
+import java.util.Random;
+import java.util.Random;
+import java.util.LinkedList;
+import java.util.Arrays;
 public class Battle {
     private int currentmon=0;
     private int foesmon=0;
