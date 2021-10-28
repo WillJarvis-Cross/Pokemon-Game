@@ -13,11 +13,11 @@ public class Moves {
         name=info[0];
         type=info[1];
         movetype=info[2];
-        if (!info[3].equals("")){dmg=Integer.parseInt(info[3]);}
+        if (!info[3].equals("?")){dmg=Integer.parseInt(info[3]);}
         else{dmg=-1;}
-        if (!info[4].equals("")){acc=Integer.parseInt(info[4]);}
+        if (!info[4].equals("?")){acc=Integer.parseInt(info[4]);}
         else{acc=1000;}
-        if (!info[5].equals("")){pp=Integer.parseInt(info[5]);ppmax=pp;}
+        if (!info[5].equals("?")){pp=Integer.parseInt(info[5]);ppmax=pp;}
         else{pp=-1;}
         if (info.length==8){
             effects=info[7].split(" ");
