@@ -27,9 +27,8 @@ public class PokemonTronHeroes extends JFrame implements ActionListener, KeyList
     Timer myTimer;
     GamePanel game;
 
-
     public PokemonTronHeroes() {
-        super("Move the Box");
+        super("Pokemon");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(16*16,16*12);
         addKeyListener(this);
@@ -64,30 +63,29 @@ public class PokemonTronHeroes extends JFrame implements ActionListener, KeyList
 
         PokemonTronHeroes frame = new PokemonTronHeroes();
     }
-
-
 }
 class GamePanel extends JPanel implements MouseListener{
     GameMap main,home,pokeCenter,shop,trainerHouse,gym,gym2,gym3,gym4;//map objects for overworld
     Item pokeball,potion,superPotion,maxPotion;//items used in battle
-    public boolean ready=false;
+    public boolean ready = false;
     private boolean[] keys;//used to see what keys are pressed
     //directions the player is moveing in
-    int movedir=3;
-    final int UP=1;
-    final int LEFT=2;
-    final int DOWN=3;
-    final int RIGHT=4;
+    int movedir = 3;
+    final int UP = 1;
+    final int LEFT = 2;
+    final int DOWN = 3;
+    final int RIGHT = 4;
     //options for the player when in battle
-    final int FIGHT=0;
-    final int PKMN=2;
-    final int RUN=3;
-    final int BAG=1;
-    boolean moving,textTalk=false;//whether your moveing,talking
-    int framecount,trainerFrame,trainerMoveDir=0;
-    boolean printed,savegame=false;
-    int battleselx=0;//used to locate a selection in a 2d array
-    int battlesely=0;
+    final int FIGHT = 0;
+    final int PKMN = 2;
+    final int RUN = 3;
+    final int BAG = 1;
+
+    boolean moving, textTalk = false;//whether your moveing,talking
+    int framecount, trainerFrame, trainerMoveDir=0;
+    boolean printed, savegame = false;
+    int battleselx = 0;//used to locate a selection in a 2d array
+    int battlesely = 0;
     //pokemon information
     String[][] allpokes=fileRead("text files/pokemonVals.txt",151,",");
     String[][] almoves=fileRead("text files/Moves.txt",165,",");
@@ -99,11 +97,11 @@ class GamePanel extends JPanel implements MouseListener{
     Player p;
     int battexttodisp,gymsCompleted=0;//used to find which text to display in a array of text during battle, tells how far in game player has progressed
     Pokemon[] playerpokes;
-    Pokemon[] enemypokes=new Pokemon[6];//array for foes team
+    Pokemon[] enemypokes = new Pokemon[6];//array for foes team
     //pokemon sprites
-    Image[] minisprites=new Image[151];
-    Image[] frontsprite=new Image[151];
-    Image[] backsprites=new Image[151];
+    Image[] minisprites = new Image[151];
+    Image[] frontsprite = new Image[151];
+    Image[] backsprites = new Image[151];
 
     Image battleback=new ImageIcon("images/Battle Backs/back1.png").getImage();
     Image menu=new ImageIcon("images/menus/main menu.png").getImage();
@@ -380,24 +378,13 @@ class GamePanel extends JPanel implements MouseListener{
         catch (IOException|FontFormatException e) {
             //Handle exception
         }
-
-
-
-
     }
-
-
-
 
 
     public void setKey(int k, boolean v) {
         keys[k] = v;
     }
     public void refresh() {
-        ////System.out.println(maskCol);
-        ////System.out.println(main.getY());
-        ////////System.out.println(npcDraw);
-
         if(pokeevolve.size()==0){//if theres no evolution animation
 
             maskCol=getPixel(bufferedImages[mapNum],Math.abs(maps[mapNum].getX())+120,Math.abs(maps[mapNum].getY())+88);//colour of the tile of the spot you are on in the mask
@@ -1810,6 +1797,10 @@ class GamePanel extends JPanel implements MouseListener{
                                 running=false;
                             }
                         }
+                    }
+                    else{
+                        g.drawImage(maps[mapNum].getMain(),maps[mapNum].getX(),maps[mapNum].getY(),this);//drawing map
+                        g.drawImage(p.move(framecount/4,movedir),7*16,5*16-2,this);
                     }
                 }
                 if(moving==false){//pics for if the player isn't moving
